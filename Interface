@@ -1,0 +1,106 @@
+// --== CS400 File Header Information ==--
+// Name: Ally Rilling
+// Email: anrilling@wisc.edu
+// Team: AG
+// TA: Sophie Stephenson
+// Lecturer: Florian
+// Notes to Grader: None
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Project1FontEndInterface {
+
+	public static void main(String[] args) {
+		boolean shouldContinue = true;
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("Welcome to EXPLORER! Use this app to explore travel destinations around the world.");
+
+		while(shouldContinue) {
+			System.out.print("Enter the name of a destination (c - show list of commands): ");
+			String userInput = input.nextLine().toLowerCase().trim();
+			char userCommand = userInput.charAt(0);
+
+			if(userCommand == 'l') {
+				// TODO finish this section
+				// list all the destinations in the database
+			} else if(userCommand == 'r') {
+				// TODO finish this section
+				// get a random location from the database
+				// need to convert hash table into array, generate random index, return the element at that index
+
+				Random random = new Random();
+				int randomArrayIndex = random.nextInt(0); // replace 0 with the size of the array
+			} else if(userCommand == 'p') {
+				// TODO finish this section
+				// use similar functionality to r command
+				// convert hash table into an array
+				// generate 5 random indexes
+				// return the destinations contained at those 5 indexes
+			} else if(userCommand == 'd') {
+				// TODO finish this section
+				String destination = null;
+				if(userInput.length() > 1) {
+					destination = userInput.substring(2);
+				}
+				/*
+				pass destination to back end to see if it exists in data base
+				if location is found, return details of location
+				else {
+					System.out.println("Destination not found in database.");
+				}
+				 */
+
+			} else if(userCommand == 't') {
+				// TODO finish this section
+				String continent = null;
+				if(userInput.length() > 1) {
+					continent = userInput.substring(2);
+				}
+
+				if(!continent.equals("asia") || !continent.equals("africa") || !continent.equals("north america") || !continent.equals("ksouth america") || !continent.equals("antarctica") || !continent.equals("europe") || !continent.equals("africa")) {
+					// get all countries in hash table that are in specified country
+				} else {
+					System.out.println("Continent not recognized.");
+				}
+
+			} else if(userCommand == 'y') {
+				// TODO finish this section
+				String country = null;
+				if(userInput.length() > 1) {
+					country = userInput.substring(2);
+				}
+
+//				if(there destinations within specified country) {
+//					// get all countries in hash table that are in specified country
+//				} else {
+//					System.out.println("Country not recognized.");
+//				}
+			} else if(userCommand == 'c') {
+				printListOfCommands();
+			} else if(userCommand == 'q') {
+				shouldContinue = false;
+				System.out.println("Thank you for using EXPLORE!");
+			} else {
+				System.out.println("Command not recognized.");
+			}
+
+		}
+	}
+
+	private static void printListOfCommands() {
+		System.out.println("---------------------------------------------------------------");
+		System.out.println("l - list all destinations");
+		System.out.println("r - display a random location and its details");
+		System.out.println("p - create and display a travel plan of random cities and their details");
+		System.out.println("d *location name* - show details of specified location");
+		System.out.println("t *continent* - list all destinations in specified continent");
+		System.out.println("y *country* - list all destinations in specified country");
+		System.out.println("c - show list of commands");
+		System.out.println("q - quit app");
+		System.out.println("---------------------------------------------------------------");
+		System.out.println();
+	}
+
+}
